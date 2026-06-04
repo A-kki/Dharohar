@@ -1,0 +1,143 @@
+.heritage-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem;
+    background-color: var(--color-parchment);
+    border: 1px solid var(--color-muted-gold);
+    border-radius: 40px;
+    width: 100%;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-soft);
+    font-family: var(--font-sans);
+    transition: transform 0.2s ease;
+}
+
+.heritage-audio-player:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(44, 42, 41, 0.1);
+}
+
+.play-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid var(--color-terracotta);
+    color: var(--color-terracotta);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.play-toggle:hover {
+    background-color: var(--color-terracotta);
+    color: var(--color-parchment);
+}
+
+.play-icon-triangle {
+    transform: translateX(2px);
+}
+
+.audio-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    flex-shrink: 0;
+}
+
+.audio-title {
+    font-family: var(--font-serif);
+    color: var(--color-burnt-umber);
+    font-weight: 600;
+    font-size: 1rem;
+    /* do NOT use white-space: nowrap — overflows at 320–375px */
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.audio-time {
+    font-size: 0.75rem;
+    color: var(--color-text-light);
+    margin-top: 2px;
+}
+
+.progress-container {
+    flex-grow: 1;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: 0 4px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(176, 141, 87, 0.3);
+    /* Muted gold track with opacity */
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--color-terracotta);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+/* Custom Seek Dot (Optional, subtle hover effect) */
+.progress-container:hover .progress-track::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-burnt-umber);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* We'd need JS to position this exactly if we wanted a moving dot, 
+       but keeping it minimal as requested. */
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .heritage-audio-player {
+        padding: 0.75rem 1rem;
+        gap: 0.75rem;
+        border-radius: 12px;
+        /* softer on mobile */
+    }
+
+    .audio-info {
+        min-width: 0;
+        /* allow shrink */
+        flex: 1;
+    }
+
+    .audio-title {
+        font-size: 0.88rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .heritage-audio-player {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .progress-container {
+        width: 100%;
+        flex-basis: 100%;
+    }
+}

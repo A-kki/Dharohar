@@ -1,0 +1,33 @@
+{
+  "name": "dharohar-mvp",
+  "version": "0.1.0",
+  "bin": {
+    "dharohar-mvp": "bin/dharohar-mvp.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/jest": "^30",
+    "@types/node": "^24.10.1",
+    "aws-cdk": "2.1107.0",
+    "esbuild": "^0.27.3",
+    "jest": "^30",
+    "ts-jest": "^29",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.9.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.1002.0",
+    "@aws-sdk/client-dynamodb": "^3.1001.0",
+    "@aws-sdk/client-s3": "^3.1001.0",
+    "@aws-sdk/client-transcribe": "^3.1002.0",
+    "@aws-sdk/lib-dynamodb": "^3.1001.0",
+    "@aws-sdk/s3-request-presigner": "^3.1001.0",
+    "aws-cdk-lib": "^2.239.0",
+    "constructs": "^10.5.0"
+  }
+}

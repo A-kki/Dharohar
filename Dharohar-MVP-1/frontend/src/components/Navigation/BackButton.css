@@ -1,0 +1,41 @@
+.back-navigation-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--color-muted-gold);
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all var(--transition-base);
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+    user-select: none;
+    width: fit-content;
+}
+
+.back-navigation-btn svg {
+    font-size: 1.1rem;
+    transition: transform var(--transition-base);
+}
+
+.back-navigation-btn:hover {
+    color: var(--color-terracotta);
+    background-color: rgba(176, 141, 87, 0.05);
+}
+
+.back-navigation-btn:hover svg {
+    transform: translateX(-3px);
+}
+
+/* Specific adjustment when used in headers or overlays */
+.dark-bg .back-navigation-btn {
+    color: white;
+}
+
+.dark-bg .back-navigation-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}

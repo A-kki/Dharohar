@@ -1,0 +1,109 @@
+.tree-container {
+    width: 100%;
+    height: clamp(320px, 60vw, 600px);
+    /* responsive: 320px min, 600px max */
+    position: relative;
+    background: radial-gradient(circle at center, #F4EDE4 0%, #E8DFD3 100%);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: inset var(--shadow-soft);
+}
+
+.metadata-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: rgba(253, 251, 250, 0.95);
+    backdrop-filter: blur(4px);
+    padding: 1.5rem;
+    border-color: var(--color-muted-gold);
+}
+
+.metadata-title {
+    color: var(--color-terracotta);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.metadata-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+}
+
+.minimal-btn {
+    background-color: transparent;
+    border: 1px solid var(--color-burnt-umber);
+    color: var(--color-burnt-umber);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.minimal-btn:hover {
+    background-color: var(--color-burnt-umber);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.fallback-explorer {
+    padding: 3rem;
+    text-align: center;
+}
+
+.fallback-list {
+    text-align: left;
+    max-width: 400px;
+    margin: 2rem auto;
+    list-style: none;
+}
+
+.fallback-list li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-muted-gold);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TABLET: 768px – 1023px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 1023px) {
+    .metadata-panel {
+        width: 240px;
+        padding: 1rem;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE: max 767px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 767px) {
+
+    /* Metadata panel: pull out of absolute positioning, become a regular block */
+    .metadata-panel {
+        position: static;
+        width: 100%;
+        border-radius: var(--border-radius);
+        margin-top: 0.75rem;
+        backdrop-filter: none;
+    }
+
+    .metadata-title {
+        font-size: 1.1rem;
+    }
+
+    .metadata-desc {
+        font-size: 0.88rem;
+    }
+
+    /* Fallback explorer */
+    .fallback-explorer {
+        padding: 1.5rem 1rem;
+    }
+
+    .fallback-list {
+        max-width: 100%;
+    }
+}

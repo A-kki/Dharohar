@@ -1,0 +1,284 @@
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    /* Now flex will split the children */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    overflow: hidden;
+}
+
+.hero-left-pane {
+    flex: 1;
+    /* Takes up remaining space */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(176, 141, 87, 0.3);
+    /* Subtle gold divider */
+}
+
+.hero-right-pane {
+    width: 450px;
+    /* Fixed width for login side */
+    background-color: rgba(244, 237, 228, 0.95);
+    /* Parchment with high opacity */
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 20-30% dark overlay for readability */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 42, 41, 0.25);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    pointer-events: none;
+    /* Let Three.js catch clicks behind if needed */
+}
+
+.hero-title {
+    font-size: 4rem;
+    letter-spacing: 6px;
+    color: var(--color-parchment);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+}
+
+/* Ceremonial Rotating Symbol Behind Title */
+.ceremonial-symbol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    z-index: -1;
+    opacity: 0.07;
+    /* 5-8% opacity */
+    animation: ceremonialRotate 55s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes ceremonialRotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.explorer-container {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-banner {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-muted-gold);
+    margin-bottom: 4rem;
+}
+
+.section-banner h2 {
+    font-size: 2rem;
+    color: var(--color-burnt-umber);
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.structured-card {
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-muted-gold);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+    cursor: pointer;
+}
+
+.structured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-family: var(--font-serif);
+    color: var(--color-burnt-umber);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.card-badge {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--color-terracotta);
+    color: var(--color-terracotta);
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: transparent;
+}
+
+.card-subtitle {
+    color: var(--color-muted-gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    margin-bottom: 1.5rem;
+}
+
+/* Reusable Attribution Block */
+.attribution-block {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(176, 141, 87, 0.05);
+    border-left: 3px solid var(--color-burnt-umber);
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    font-family: var(--font-sans);
+}
+
+.attribution-block strong {
+    color: var(--color-burnt-umber);
+    display: block;
+}
+
+.attribution-block span {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TABLET: 768px – 1023px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 1023px) {
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-right-pane {
+        width: 100%;
+        min-height: auto;
+        padding: 2.5rem 2rem;
+        order: 2;
+    }
+
+    .hero-left-pane {
+        min-height: 50vh;
+        order: 1;
+        border-right: none;
+        border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .ceremonial-symbol {
+        width: 400px;
+        height: 400px;
+    }
+
+    .grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .explorer-container {
+        padding: 0 1.5rem;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE: max 767px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 767px) {
+    .hero-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .hero-left-pane {
+        min-height: 55vw;
+        order: 1;
+        border-right: none;
+        border-bottom: 1px solid rgba(176, 141, 87, 0.2);
+    }
+
+    .hero-right-pane {
+        width: 100%;
+        order: 2;
+        padding: 2rem 1.25rem;
+        box-shadow: none;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+    }
+
+    .ceremonial-symbol {
+        width: 250px;
+        height: 250px;
+    }
+
+    .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .explorer-container {
+        padding: 0 1rem;
+    }
+
+    .section-banner h2 {
+        font-size: 1.5rem;
+    }
+
+    .structured-card {
+        padding: 1.25rem;
+    }
+}

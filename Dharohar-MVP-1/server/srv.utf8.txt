@@ -1,0 +1,18 @@
+Server:  reliance.reliance
+Address:  2405:201:3008:5825::c0a8:1d01
+
+_mongodb._tcp.aditya.tqbyqg6.mongodb.net	SRV service location:
+	  priority       = 0
+	  weight         = 0
+	  port           = 27017
+	  svr hostname   = ac-vbsfvrl-shard-00-02.tqbyqg6.mongodb.net
+_mongodb._tcp.aditya.tqbyqg6.mongodb.net	SRV service location:
+	  priority       = 0
+	  weight         = 0
+	  port           = 27017
+	  svr hostname   = ac-vbsfvrl-shard-00-00.tqbyqg6.mongodb.net
+_mongodb._tcp.aditya.tqbyqg6.mongodb.net	SRV service location:
+	  priority       = 0
+	  weight         = 0
+	  port           = 27017
+	  svr hostname   = ac-vbsfvrl-shard-00-01.tqbyqg6.mongodb.net

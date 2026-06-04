@@ -1,0 +1,4 @@
+src/data/mockData.ts(111,11): error TS7034: Variable 'assets' implicitly has type 'any[]' in some locations where its type cannot be determined.
+src/data/mockData.ts(114,12): error TS7005: Variable 'assets' implicitly has an 'any[]' type.
+src/features/public-explorer/CommunityDetail.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/features/public-explorer/CulturalExplorer.tsx(1,1): error TS6133: 'React' is declared but its value is never read.

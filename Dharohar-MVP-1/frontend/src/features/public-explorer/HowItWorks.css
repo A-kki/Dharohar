@@ -1,0 +1,254 @@
+.how-it-works-section {
+    margin-bottom: 6rem;
+    padding: 2rem 0;
+}
+
+.how-it-works-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.how-it-works-header h2 {
+    font-size: 2.5rem;
+    color: var(--color-burnt-umber);
+    margin-bottom: 1rem;
+    font-family: var(--font-serif);
+}
+
+.how-it-works-subheading {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    font-style: italic;
+    font-family: var(--font-serif);
+    line-height: 1.6;
+}
+
+.how-it-works-container {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+    /* Space for the top half of the badge */
+}
+
+.progress-line {
+    position: absolute;
+    top: 20px;
+    /* Center of the badge */
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--color-muted-gold);
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.workflow-step-card {
+    flex: 1;
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-muted-gold);
+    border-radius: var(--border-radius);
+    padding: 3rem 1.5rem 1.5rem;
+    /* Extra top padding for badge */
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+    position: relative;
+    text-align: center;
+}
+
+.workflow-step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--color-terracotta);
+}
+
+.step-badge {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-burnt-umber);
+    color: var(--color-parchment);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: var(--font-serif);
+    border: 2px solid var(--color-muted-gold);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 3;
+    transition: background-color var(--transition-base);
+}
+
+.workflow-step-card:hover .step-badge {
+    background-color: var(--color-terracotta);
+}
+
+.step-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.step-image-container {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    background-color: rgba(176, 141, 87, 0.1);
+    /* Light muted gold */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--color-muted-gold);
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+.step-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Fallback for when image placeholder is missing */
+.step-image-container.fallback-icon::after {
+    content: '✦';
+    font-size: 2rem;
+    color: var(--color-muted-gold);
+}
+
+.step-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-title {
+    font-family: var(--font-serif);
+    color: var(--color-burnt-umber);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.step-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TABLET: max 1023px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 1023px) {
+    .steps-wrapper {
+        flex-direction: column;
+        gap: 2.5rem;
+        padding-left: 20px;
+        /* Align with progress line */
+    }
+
+    .progress-line {
+        top: 2rem;
+        bottom: 2rem;
+        left: 20px;
+        /* 20px aligns exactly with center of a 40px badge when left is 0 on card, but let's adjust */
+        right: auto;
+        width: 2px;
+        height: auto;
+    }
+
+    .workflow-step-card {
+        padding: 1.5rem;
+        text-align: left;
+        margin-left: 20px;
+        /* Push card right */
+    }
+
+    .step-badge {
+        top: 50%;
+        left: -20px;
+        /* Position exactly on the line */
+        transform: translate(-50%, -50%);
+    }
+
+    .step-content-wrapper {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .step-image-container {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 0;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+    }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE: max 600px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 600px) {
+    .how-it-works-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .how-it-works-subheading {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .steps-wrapper {
+        padding-left: 0;
+        gap: 3rem;
+    }
+
+    .progress-line {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+        bottom: auto;
+        height: 100%;
+        width: 2px;
+    }
+
+    .workflow-step-card {
+        margin-left: 0;
+        padding: 3rem 1.25rem 1.5rem;
+        text-align: center;
+    }
+
+    .step-badge {
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .step-content-wrapper {
+        flex-direction: column;
+    }
+
+    .step-image-container {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,107 @@
+# Dharohar MVP: Technical Architecture & Implementation
+
+This document provides a detailed technical blueprint of the systems, workflows, and API endpoints implemented during this development cycle.
+
+## 🏗️ System Architecture
+
+The Dharohar platform is built as a high-performance **Full-Stack AWS Native Application**, moving away from local legacy databases toward a scalable, serverless-first infrastructure.
+
+```mermaid
+graph TD
+    Client[React/Vite Frontend] -- HTTP/JWT --> API[Express.js Backend]
+    
+    subgraph "Identity & Access"
+        API -- Admin SDK --> Cognito[AWS Cognito User Pool]
+        Cognito -- User Data --> Dynamo[DynamoDB: UsersTable]
+    end
+    
+    subgraph "Storage & Processing"
+        API -- Presigned/Direct --> S3[S3 Media Bucket]
+        API -- "Start Job" --> Transcribe[Amazon Transcribe]
+        Transcribe -- Read/Write --> S3
+        API -- "Invoke Model" --> Bedrock[AWS Bedrock: Claude 3]
+        API -- "Persist Metadata" --> Dynamo[DynamoDB: AssetsTable]
+    end
+```
+
+---
+
+## 🔄 Core Workflows
+
+### 1. Unified Authentication Flow
+We replaced MongoDB with **AWS Cognito** as the source of truth for identity, while maintaining a mirrored profile in DynamoDB for fast metadata retrieval.
+
+- **Step 1**: Frontend sends credentials to `/auth/login`.
+- **Step 2**: Backend validates with Cognito and retrieves the User's Unique ID (Sub).
+- **Step 3**: Backend fetches Role/Metadata from `UsersTable`.
+- **Step 4**: Backend signs and returns a secure JWT containing the user's role.
+
+### 2. AI Knowledge Extraction Pipeline (Sonic Assets)
+This is the heart of the automated governance system, processing audio into structured cultural knowledge.
+
+```mermaid
+sequenceDiagram
+    participant R as Reviewer (Frontend)
+    participant B as Backend (Express)
+    participant S3 as S3 Media
+    participant T as Amazon Transcribe
+    participant AI as Bedrock (Claude 3)
+    participant DB as DynamoDB
+
+    R->>B: PATCH /assets/:id/process
+    B->>DB: Load Asset Metadata
+    B->>T: StartTranscriptionJob (Media in S3)
+    Note over B,T: Polling for Completion (ap-south-1)
+    T-->>B: Job COMPLETED + JSON URI
+    B->>S3: Download Transcript Text
+    B->>AI: AnalyseAsset(Text + Metadata)
+    Note over AI: Institutional Knowledge Extraction
+    AI-->>B: Structured JSON Metadata
+    B->>DB: Update Asset: aiProcessed = true
+    B-->>R: 200 OK (Updated Asset)
+```
+
+---
+
+## 📡 API Specifications
+
+### Authentication
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/auth/login` | Authenticates via Cognito; returns JWT & Profile. | No |
+| `POST` | `/auth/register` | Registers new user in Cognito & DynamoDB. | No |
+
+### AI & Asset Management
+| Method | Endpoint | Description | Role Required |
+| :--- | :--- | :--- | :--- |
+| `GET` | `/assets/pending` | Lists assets awaiting reviewer approval. | `review`, `admin` |
+| `PATCH` | `/assets/:id/process` | **Triggers the AI Pipeline** (Transcribe + Bedrock). | `review`, `admin` |
+| `GET` | `/assets/public` | Fetches assets for the landing page gallery. | Public |
+
+*(Note: Authenticated routes require `Authorization: Bearer <token>`)*
+
+---
+
+## 💾 Data Modeling (DynamoDB)
+
+We shifted to a **GSIs (Global Secondary Index)** pattern for performance:
+
+1.  **`UsersTable`**: Partition Key: `userId`.
+    - `email-index`: Used for fast lookup during various auth workflows.
+2.  **`AssetsTable`**: Partition Key: `assetId`.
+    - `creatorId-index`: Powers the "My Submissions" view.
+    - `mediaFileId`: Links directly to the S3 object key.
+    - `aiMetadata`: Stores the results of the Bedrock analysis.
+
+---
+
+## 🚀 Environment Configuration
+
+The following critical variables were added to support the new services:
+
+| Variable | Usage |
+| :--- | :--- |
+| `BEDROCK_REGION` | Usually `us-east-1` for model availability. |
+| `BEDROCK_MODEL_ID` | `anthropic.claude-3-haiku-20240307-v1:0` |
+| `MEDIA_BUCKET` | The target for audio and transcripts. |
+| `COGNITO_USER_POOL_ID` | The ID of the dev authentication pool. |

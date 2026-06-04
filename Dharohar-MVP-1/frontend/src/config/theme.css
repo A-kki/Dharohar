@@ -1,0 +1,62 @@
+:root {
+    /* Earth-tone Palette */
+    --color-terracotta: #A14B3B;
+    --color-burnt-umber: #6E3B2E;
+    --color-muted-gold: #B08D57;
+    --color-parchment: #F4EDE4;
+    --color-forest: #2E5E4E;
+    --color-text-main: #2C2A29;
+    --color-text-light: #5A5654;
+    --color-bg-light: #FDFBFA;
+    --color-danger: #D32F2F;
+    --color-success: #388E3C;
+    --color-warning: #F57C00;
+
+    /* Typography Pairing */
+    --font-serif: 'Playfair Display', 'Merriweather', serif;
+    --font-sans: 'Inter', 'Outfit', sans-serif;
+
+    /* Institutional Aesthetics */
+    --shadow-soft: 0 4px 12px rgba(44, 42, 41, 0.08);
+    --shadow-medium: 0 8px 24px rgba(44, 42, 41, 0.12);
+    --border-radius: 4px;
+
+    /* Base Animation Timings */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease-out;
+    --transition-slow: 350ms ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes badgePop {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,178 @@
+
+D:\Dharohar\Dharohar-MVP\frontend\src\components\Layout\PageTransition.tsx
+  17:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Dharohar\Dharohar-MVP\frontend\src\components\Layout\PageTransition.tsx:17:13
+  15 |         if (location.pathname !== displayLocation.pathname) {
+  16 |             // Re-trigger animation on route change
+> 17 |             setTransitionStage('');
+     |             ^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  18 |
+  19 |             // Allow DOM to process empty state, then trigger animation class
+  20 |             const timer1 = setTimeout(() => {  react-hooks/set-state-in-effect
+
+D:\Dharohar\Dharohar-MVP\frontend\src\data\mockData.ts
+  134:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\assets\HeritageAudioPlayer.tsx
+  68:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\assets\HeritageAudioPlayer.tsx:68:9
+  66 |     useEffect(() => {
+  67 |         // Reset when src changes
+> 68 |         setIsPlaying(false);
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  69 |         setProgress(0);
+  70 |         setCurrentTime(0);
+  71 |     }, [src]);  react-hooks/set-state-in-effect
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\assets\UploadAsset.tsx
+   18:46  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+   52:28  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+   55:32  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+   63:36  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+   71:36  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+   83:8   warning  React Hook useEffect has a missing dependency: 'detectLocation'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  159:71  error    '_fileType' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+  216:18  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+  218:23  error    Unexpected any. Specify a different type                                                                           @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\auth\AuthContext.tsx
+  30:17  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\auth\AuthContext.tsx:30:17
+  28 |         if (token && savedUser) {
+  29 |             try {
+> 30 |                 setUser(JSON.parse(savedUser));
+     |                 ^^^^^^^ Avoid calling setState() directly within an effect
+  31 |             } catch (e) {
+  32 |                 localStorage.removeItem('dharohar_user');
+  33 |                 localStorage.removeItem('dharohar_token');  react-hooks/set-state-in-effect
+  31:22  error  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+  58:14  error  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               react-refresh/only-export-components
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\auth\AuthPages.tsx
+  34:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\AdminDashboard.tsx
+   26:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   33:34  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   41:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   59:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   76:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  130:44  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  133:60  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  135:62  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\LicenseApplicationDoc.tsx
+  550:35  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\LicenseApplicationDoc.tsx:550:35
+  548 |               <div className="lad-ref">
+  549 |                 <span>License Application</span>
+> 550 |                 <strong>Ref: DHR-{Date.now().toString(36).toUpperCase()}</strong>
+      |                                   ^^^^^^^^^^ Cannot call impure function
+  551 |                 <span>Date: {data.signedDate}</span>
+  552 |               </div>
+  553 |             </div>  react-hooks/purity
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\LicenseHistory.tsx
+   21:25   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+   28:8    warning  React Hook useEffect has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   75:59   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  126:44   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  129:52   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  130:124  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  131:104  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\MyLicenses.tsx
+   23:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   30:34  warning  React Hook useEffect has a missing dependency: 'load'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   43:21  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  109:81  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  116:69  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  135:64  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  137:66  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\MySubmissions.tsx
+  23:25  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  30:8   warning  React Hook useEffect has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\ReviewDashboard.tsx
+   27:25   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+   34:8    warning  React Hook useEffect has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+   45:21   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+   64:21   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  126:109  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  126:151  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\dashboard\ReviewHistory.tsx
+   21:25   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+   28:8    warning  React Hook useEffect has a missing dependency: 't'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  102:62   error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  102:152  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\licenses\ApplyForLicense.tsx
+  345:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  379:53  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  414:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  575:23  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\marketplace\Marketplace.tsx
+  71:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\public-explorer\CommunityDossier.tsx
+  27:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\public-explorer\TreeExplorer.tsx
+   83:25  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\public-explorer\TreeExplorer.tsx:83:25
+  81 |             position: [0, 0, 0], // Starting point, actual set in useFrame
+  82 |             angle: (i / 8) * Math.PI * 2,
+> 83 |             radius: 2 + Math.random() * 1.5,
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  84 |             height: 1 + Math.random() * 4,
+  85 |         };
+  86 |     });  react-hooks/purity
+   84:25  error  Error: Cannot call impure function during render
+
+`Math.random` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+D:\Dharohar\Dharohar-MVP\frontend\src\features\public-explorer\TreeExplorer.tsx:84:25
+  82 |             angle: (i / 8) * Math.PI * 2,
+  83 |             radius: 2 + Math.random() * 1.5,
+> 84 |             height: 1 + Math.random() * 4,
+     |                         ^^^^^^^^^^^^^ Cannot call impure function
+  85 |         };
+  86 |     });
+  87 |                                                                             react-hooks/purity
+  139:37  error  '_' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+
+D:\Dharohar\Dharohar-MVP\frontend\src\services\assetService.ts
+  25:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 61 problems (54 errors, 7 warnings)
+

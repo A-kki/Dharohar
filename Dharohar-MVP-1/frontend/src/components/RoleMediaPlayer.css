@@ -1,0 +1,203 @@
+/* ── RoleMediaPlayer ── */
+.rmp-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.rmp-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--color-text-light, #888);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.4rem;
+}
+
+.rmp-player-area {
+    position: relative;
+    width: 100%;
+}
+
+.rmp-audio {
+    width: 100%;
+    display: block;
+    accent-color: var(--color-terracotta, #A14B3B);
+    height: 44px;
+}
+
+.rmp-audio-hidden {
+    display: none;
+}
+
+/* Custom Audio Player styles */
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    background-color: #FAEEE5;
+    /* Parchment-like background from screenshot */
+    border: 1px solid var(--color-muted-gold, #C1A68D);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    width: 100%;
+}
+
+.custom-play-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-terracotta, #A14B3B);
+    background: transparent;
+    color: var(--color-terracotta, #A14B3B);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.custom-play-btn:hover {
+    background: rgba(161, 75, 59, 0.05);
+    transform: scale(1.05);
+}
+
+.custom-audio-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-left: 1.5rem;
+    gap: 2rem;
+}
+
+.custom-audio-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+}
+
+.custom-audio-title {
+    font-family: var(--font-serif, serif);
+    color: var(--color-burnt-umber, #4A2E2B);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.custom-audio-time {
+    font-family: var(--font-sans, sans-serif);
+    color: var(--color-text-light, #6b5c53);
+    font-size: 0.85rem;
+}
+
+.custom-audio-progress-container {
+    flex: 1;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-audio-progress-bg {
+    width: 100%;
+    height: 4px;
+    background-color: rgba(176, 141, 87, 0.3);
+    /* Muted gold transparent */
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-audio-progress-fill {
+    height: 100%;
+    background-color: var(--color-terracotta, #A14B3B);
+    transition: width 0.1s linear;
+}
+
+.rmp-video {
+    width: 100%;
+    max-height: 220px;
+    background: #000;
+    border-radius: 2px;
+    display: block;
+}
+
+/* Preview badge — shown before user plays */
+.rmp-preview-badge {
+    margin-top: 4px;
+    font-size: 0.72rem;
+    color: var(--color-text-light, #888);
+    font-style: italic;
+    padding: 2px 0;
+}
+
+/* Banner shown after preview ends */
+.rmp-preview-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 1rem;
+    padding: 10px 16px;
+    background: rgba(161, 75, 59, 0.07);
+    border: 1px solid var(--color-terracotta, #A14B3B);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--color-terracotta, #A14B3B);
+    font-weight: 600;
+}
+
+.rmp-preview-hint {
+    font-weight: 400;
+    color: var(--color-text-light, #888);
+    font-style: italic;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE: max 767px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 767px) {
+    .rmp-video {
+        max-height: 180px;
+    }
+
+    .rmp-label {
+        font-size: 0.72rem;
+    }
+
+    .rmp-preview-banner {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.75rem;
+    }
+
+    .custom-audio-player {
+        padding: 0.75rem 1rem;
+    }
+
+    .custom-audio-content {
+        margin-left: 1rem;
+        gap: 1rem;
+    }
+
+    .custom-audio-info {
+        min-width: 0;
+    }
+
+    .custom-audio-title {
+        font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 140px;
+    }
+
+    .custom-play-btn {
+        width: 44px;
+        height: 44px;
+    }
+}

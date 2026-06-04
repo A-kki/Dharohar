@@ -1,0 +1,28 @@
+*.js
+!jest.config.js
+*.d.ts
+node_modules/
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Dependencies
+node_modules/
+
+# Environment secrets — NEVER commit these
+**/.env
+*.env.local
+*.env.production
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db

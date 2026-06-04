@@ -1,0 +1,6 @@
+Server:  reliance.reliance
+Address:  2405:201:3008:5825::c0a8:1d01
+
+aditya.tqbyqg6.mongodb.net	text =
+
+	"authSource=admin&replicaSet=atlas-vz3fjt-shard-0"

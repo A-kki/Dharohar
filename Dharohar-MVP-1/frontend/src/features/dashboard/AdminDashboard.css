@@ -1,0 +1,166 @@
+.admin-dashboard {
+    padding: 1rem;
+}
+
+.dashboard-header-inner {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-muted-gold);
+    padding-bottom: 1rem;
+}
+
+.dashboard-header-inner h3 {
+    font-size: 1.5rem;
+    color: var(--color-burnt-umber);
+    margin-bottom: 0.5rem;
+}
+
+.request-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.request-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    background-color: var(--color-bg-light);
+    border-left: 4px solid var(--color-terracotta);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.request-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+.request-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.applicant-info h4 {
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+    color: var(--color-text-main);
+    font-family: var(--font-sans);
+}
+
+.request-date {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+.tag.pending {
+    background-color: rgba(176, 141, 87, 0.1);
+    color: var(--color-burnt-umber);
+    border: 1px solid var(--color-muted-gold);
+    animation: badgePop var(--transition-base);
+}
+
+.asset-context {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.community-ref {
+    color: var(--color-muted-gold);
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.intended-use-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-parchment);
+    border: 1px solid var(--color-muted-gold);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+}
+
+.justification-box {
+    background-color: rgba(253, 251, 250, 0.7);
+    padding: 1rem;
+    border: 1px dashed var(--color-muted-gold);
+}
+
+.justification-box strong {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.justification-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-main);
+}
+
+.request-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-muted-gold);
+}
+
+.minimal-btn.danger-text {
+    color: var(--color-danger);
+    border-color: transparent;
+}
+
+.minimal-btn.danger-text:hover {
+    background-color: rgba(211, 47, 47, 0.1);
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    border: 1px dashed var(--color-muted-gold);
+    border-radius: var(--border-radius);
+    color: var(--color-text-light);
+    font-style: italic;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   MOBILE: max 767px
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 767px) {
+    .request-card {
+        padding: 1.25rem !important;
+    }
+
+    .request-header {
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .request-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding-top: 1rem;
+        margin-top: 1rem;
+    }
+
+    .request-actions button {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .empty-state {
+        padding: 2rem 1rem;
+    }
+
+    .justification-box {
+        padding: 0.75rem;
+    }
+}

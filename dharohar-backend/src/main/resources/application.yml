@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  connection-timeout: 120s
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: dharohar-backend
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/dharohar?serverSelectionTimeoutMS=90000&connectTimeoutMS=90000}
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:d41d8cd98f00b204e9800998ecf8427e1234567890abcdef1234567890abcdef}
+    expiration-ms: 86400000 # 24 hours
+  upload:
+    dir: ${UPLOAD_DIR:./uploads}
+  gemini:
+    api-key: ${GEMINI_API_KEY:}
+    api-url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent

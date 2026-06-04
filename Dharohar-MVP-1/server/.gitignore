@@ -1,0 +1,6 @@
+node_modules/
+.env
+test-out.txt
+db-out.txt
+db-out2.txt
+*.log

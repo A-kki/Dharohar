@@ -1,0 +1,7 @@
+.page-transition-wrapper {
+    opacity: 0;
+}
+
+.page-transition-wrapper.fadeInUp {
+    animation: fadeInUp var(--transition-base) forwards;
+}
