@@ -1181,9 +1181,6 @@ If you find this project interesting or useful, please consider giving it a ⭐ 
 
 **Preserving the Past • Empowering the Present • Securing the Future**
 
-[![GitHub stars](https://img.shields.io/github/stars/adityatiwari12/Dharohar-MVP?style=social)](https://github.com/adityatiwari12/Dharohar-MVP/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/adityatiwari12/Dharohar-MVP?style=social)](https://github.com/adityatiwari12/Dharohar-MVP/network/members)
-[![GitHub watchers](https://img.shields.io/github/watchers/adityatiwari12/Dharohar-MVP?style=social)](https://github.com/adityatiwari12/Dharohar-MVP/watchers)
 
 **#AIForBharat #HeritagePreservation #DigitalSovereignty #AWS #Blockchain**
 
